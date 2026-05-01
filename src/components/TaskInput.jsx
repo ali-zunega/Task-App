@@ -27,7 +27,7 @@ function TaskInput({ addTask }) {
         autoComplete="off"
       />
       <button
-        className="btn btn-dark d-flex align-items-center gap-2"
+        className="btn btn-primary d-flex align-items-center gap-2"
         type="submit"
       >
         <i className="bi bi-plus-lg"></i>
