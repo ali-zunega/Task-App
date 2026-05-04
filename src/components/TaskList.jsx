@@ -1,6 +1,18 @@
+import { useState } from "react";
+
 import TaskItem from "./TaskItem";
 
 const TaskList = ({ tasks, toggleTask, deleteTask }) => {
+  const [deletingId, setDeletingId] = useState(null);
+  const handleDelete = (id) => {
+    setDeletingId(id);
+
+    // demoramos la eliminacion para que muestre la animacion
+    setTimeout(() => {
+      deleteTask(id);
+      setDeletingId(null);
+    }, 400);
+  };
   return (
     <div className="list-group shadow-sm">
       {tasks.length === 0 ? (
@@ -13,7 +25,8 @@ const TaskList = ({ tasks, toggleTask, deleteTask }) => {
             key={task.id}
             task={task}
             toggleTask={toggleTask}
-            deleteTask={deleteTask}
+            deleteTask={handleDelete}
+            isDeleting={task.id === deletingId}
           />
         ))
       )}
