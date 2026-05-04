@@ -26,18 +26,17 @@ Construir una aplicación web que permite a los usuarios:
 
 ## 📦 Features
 
-### ✅ Funcionalidades principales
+### ✅ Funcionalidades Implementadas
 
-- Agregar tareas dinámicamente
-- Cambiar el estado de finalización de las tareas
-- Eliminar tareas de la lista
-- Indicador visual de tareas completadas y pendientes
+- **Gestión de Tareas:** Agregar, completar y eliminar tareas con una interfaz fluida.
+- **Persistencia Local:** Integración con `localStorage` para que tus tareas no se borren al recargar el navegador.
+- **Arquitectura Limpia:** Separación de lógica en componentes funcionales y utilidades (`utils`) para el formateo de texto.
 
-### 💡 Consideraciones de UX
+### 💡 Experiencia de Usuario (UX/UI)
 
-- Validación de entrada (evita tareas vacías)
-- Actualizaciones inmediatas de la interfaz de usuario (no requiere recarga)
-- Jerarquía visual clara y retroalimentación
+- **Micro-interacciones:** Animaciones personalizadas ("pop") al completar tareas para un feedback visual dinámico.
+- **Diseño Responsive:** Optimizado para dispositivos móviles y escritorio (breakpoints ajustados a 576px).
+- **Formateo Inteligente:** Implementación de _Sentence case_ mediante JS para mantener la consistencia visual.
 
 ### 🧠 Estructura de los datos
 
@@ -59,14 +58,13 @@ Cada tarea se representa como un objeto:
 src/
 │
 ├── components/        # componentes reutilizables
+│   ├── TaskList.jsx
+│   ├── TaskItem.jsx
 │   └── TaskInput.jsx
 │
-├── features/
-│   └── tasks/
-│       ├── TaskList.jsx
-│       └── TaskItem.jsx
-│
 ├── hooks/
+│   └── useTasks.js
+├── utils/             #  funciones de ayuda
 ├── styles/            #  estilos globales
 │
 ├── App.jsx            # logica principal de la app
@@ -80,13 +78,13 @@ src/
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/your-username/react-task-app.git
+git clone https://github.com/ali-zunega/Task-App.git
 ```
 
 2. Navega a la carpeta del proyecto:
 
 ```bash
-cd react-task-app
+cd Task-App
 ```
 
 3. Instala dependencias:
@@ -103,16 +101,12 @@ npm run dev
 
 ---
 
-## 🧪 Mejoras futuras
+## 🧪 Próximos Pasos (Scalability)
 
-This project is intentionally simple but designed with scalability in mind. Possible next steps:
-
-- 💾 Persistencia de datos usando `localStorage`
-- 🔍 Filtro de tareas (Todas / Completadas / Pendientes)
-- ✏️ Editar tareas existentes
-- 🎨 Mejora de UI (animaciones, tema, accesibilidad)
-- 🧪 Agregar pruebas unitarias y de integración
-- 📱 Mejora de diseño responsive
+- **Categorización:** Agregar etiquetas o prioridades a las tareas.
+- **Modo Oscuro:** Implementar un switch de tema (Light/Dark mode) usando variables CSS.
+- **Búsqueda y Filtros:** Filtrar por tareas pendientes, completadas o por texto.
+- **Testing:** Cobertura de pruebas unitarias con Vitest y React Testing Library.
 
 ---
 
