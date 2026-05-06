@@ -120,8 +120,6 @@ npm run dev
 
 ## 📸 Screenshots
 
-_(Add screenshots here once UI is implemented)_
-
 ---
 
 ## 🤝 Autor
