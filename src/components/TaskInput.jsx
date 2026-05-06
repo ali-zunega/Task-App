@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTaskContext } from "../context/useTaskContext";
 
-function TaskInput({ addTask }) {
+function TaskInput() {
+  const { addTask } = useTaskContext();
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {

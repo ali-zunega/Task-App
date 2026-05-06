@@ -1,4 +1,4 @@
-import { useTasks } from "./hooks/useTasks";
+import { useTaskContext } from "./context/useTaskContext";
 
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
@@ -7,28 +7,7 @@ import logo from "./assets/logo.png";
 import "./App.css";
 
 function App() {
-  const {
-    tasks,
-    addTask,
-    deleteTask,
-    toggleTask,
-    searchTerm,
-    setSearchTerm,
-    filterStatus,
-    setFilterStatus,
-  } = useTasks();
-
-  // filtrado
-  const filteredTasks = tasks.filter((task) => {
-    const matchesSearch = task.text
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
-    const matchesFilter =
-      filterStatus === "all" ||
-      (filterStatus === "completed" ? task.completed : !task.completed);
-
-    return matchesSearch && matchesFilter;
-  });
+  const { tasks, filteredTasks } = useTaskContext();
 
   return (
     <div className="container mt-1 px-sm-0">
@@ -55,23 +34,11 @@ function App() {
             </div>
           </header>
 
-          <TaskInput addTask={addTask} />
+          <TaskInput />
 
-          {tasks.length > 0 && (
-            <TaskControls
-              searchTerm={searchTerm}
-              setSearchTerm={setSearchTerm}
-              filterStatus={filterStatus}
-              setFilterStatus={setFilterStatus}
-            />
-          )}
+          {tasks.length > 0 && <TaskControls />}
 
-          <TaskList
-            tasks={filteredTasks}
-            toggleTask={toggleTask}
-            deleteTask={deleteTask}
-            filterStatus={filterStatus}
-          />
+          <TaskList tasks={filteredTasks} />
         </div>
       </div>
     </div>

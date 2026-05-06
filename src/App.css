@@ -27,7 +27,8 @@
     }
 }
 
-.deleting {
+
+.task-item.deleting {
     animation: fade-out 0.4s forwards;
 }
 

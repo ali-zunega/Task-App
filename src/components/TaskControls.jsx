@@ -1,9 +1,7 @@
-const TaskControls = ({
-  searchTerm,
-  setSearchTerm,
-  filterStatus,
-  setFilterStatus,
-}) => {
+import { useTaskContext } from "../context/useTaskContext";
+const TaskControls = () => {
+  const { searchTerm, setSearchTerm, filterStatus, setFilterStatus } =
+    useTaskContext();
   return (
     <div className="mb-4">
       {/* Buscador */}
