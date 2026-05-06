@@ -15,7 +15,7 @@ function TaskInput() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="input-group input-group-lg mb-3 shadow-sm"
+      className="input-group input-group-md mb-3 shadow-sm"
     >
       <input
         id="task-input"

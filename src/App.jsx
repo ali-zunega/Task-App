@@ -13,7 +13,7 @@ function App() {
     <div className="container mt-1 px-sm-0">
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
-          <header className="bg-primary text-white py-5 mb-5 shadow">
+          <header className="bg-primary text-white py-4 mb-4 shadow">
             <div className="container">
               <div className="d-flex align-items-center justify-content-md-evenly justify-content-center gap-3">
                 {/* logo*/}
