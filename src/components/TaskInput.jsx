@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTaskContext } from "../context/useTaskContext";
 
-function TaskInput({ addTask }) {
+function TaskInput() {
+  const { addTask } = useTaskContext();
   const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
@@ -13,7 +15,7 @@ function TaskInput({ addTask }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="input-group input-group-lg mb-3 shadow-sm"
+      className="input-group input-group-md mb-3 shadow-sm"
     >
       <input
         id="task-input"

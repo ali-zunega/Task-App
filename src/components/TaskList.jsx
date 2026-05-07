@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useTaskContext } from "../context/useTaskContext";
 
 import TaskItem from "./TaskItem";
 
-const TaskList = ({ tasks, toggleTask, deleteTask }) => {
+const TaskList = () => {
+  const { filteredTasks, deleteTask, toggleTask, filterStatus } =
+    useTaskContext();
   const [deletingId, setDeletingId] = useState(null);
   const handleDelete = (id) => {
     setDeletingId(id);
@@ -13,14 +16,11 @@ const TaskList = ({ tasks, toggleTask, deleteTask }) => {
       setDeletingId(null);
     }, 400);
   };
+
   return (
     <div className="list-group shadow-sm">
-      {tasks.length === 0 ? (
-        <div className="list-group-item p-4 text-center text-secondary">
-          No hay tareas pendientes. ¡Disfruta tu día!
-        </div>
-      ) : (
-        tasks.map((task) => (
+      {filteredTasks.length > 0 ? (
+        filteredTasks.map((task) => (
           <TaskItem
             key={task.id}
             task={task}
@@ -29,6 +29,14 @@ const TaskList = ({ tasks, toggleTask, deleteTask }) => {
             isDeleting={task.id === deletingId}
           />
         ))
+      ) : filteredTasks.length === 0 && filterStatus === "completed" ? (
+        <div className="list-group-item p-4 text-center text-secondary">
+          Has completado todas tus tareas. ¡Disfruta tu día!
+        </div>
+      ) : (
+        <div className="list-group-item p-4 text-center text-secondary">
+          No hay tareas pendientes. ¡Disfruta tu día!
+        </div>
       )}
     </div>
   );

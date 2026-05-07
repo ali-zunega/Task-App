@@ -57,17 +57,19 @@ Cada tarea se representa como un objeto:
 ```bash
 src/
 │
-├── components/        # componentes reutilizables
+├── components/          # componentes reutilizables
 │   ├── TaskList.jsx
 │   ├── TaskItem.jsx
 │   └── TaskInput.jsx
-│
+├── context/             # contexto
+│   ├── TaskContext.jsx
+│   └── useTasksContext.js
 ├── hooks/
 │   └── useTasks.js
-├── utils/             #  funciones de ayuda
-├── styles/            #  estilos globales
+├── utils/               #  funciones de ayuda
+├── styles/              #  estilos globales
 │
-├── App.jsx            # logica principal de la app
+├── App.jsx              # logica principal de la app
 └── main.jsx
 ```
 
@@ -119,8 +121,6 @@ npm run dev
 ---
 
 ## 📸 Screenshots
-
-_(Add screenshots here once UI is implemented)_
 
 ---
 

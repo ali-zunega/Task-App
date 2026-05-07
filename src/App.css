@@ -1,10 +1,12 @@
 .task-item {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .task-item:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #717275;
+    border-top: 1px solid #717275;
 }
 
 .completed-animation {
@@ -25,7 +27,8 @@
     }
 }
 
-.deleting {
+
+.task-item.deleting {
     animation: fade-out 0.4s forwards;
 }
 
@@ -47,4 +50,13 @@
         padding: 0;
         overflow: hidden;
     }
+}
+
+.transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-outline-secondary:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--bs-secondary);
 }
