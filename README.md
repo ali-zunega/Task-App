@@ -124,23 +124,33 @@ npm run dev
 
 ### Vista Mobile
 
-![Mobile_1](./src/assets/screenshots/mobile-all-pending.png)
-![Mobile_2](./src/assets/screenshots/mobile-all.png)
-![Mobile_3](./src/assets/screenshots/mobile-pending.png)
-![Mobile_4](./src/assets/screenshots/mobile-completed.png)
+<img src="./src/assets/screenshots/mobile-all-pending.png" width="250px" alt="Vista Mobile All pending"> 
+<img src="./src/assets/screenshots/mobile-all.png" width="250px" alt="Vista Mobile All">
+<img src="./src/assets/screenshots/mobile-pending.png" width="250px" alt="Vista Mobile Pending" />
+<img src="./src/assets/screenshots/mobile-completed.png" width="250px" alt="Vista Mobile Completed">
 
 ### Vista Desktop
 
-![Desktop_1](./src/assets/screenshots/desktop-empty.png)
-![Desktop_1](./src/assets/screenshots/desktop-all.png)
+<img src="./src/assets/screenshots/desktop-empty.png" width="600px" alt="Desktop Empty">
+<img src="./src/assets/screenshots/desktop-pending.png" width="600px" alt="Desktop All">
 
 ---
 
 ## 🎥 Demo en Vivo
 
-![Video](./src/assets/video-demo.mp4)
+![Video]
 
 > **Nota:** Se puede observar la fluidez de las animaciones al completar y eliminar tareas.
+
+---
+
+## 🌐 Despliegue y Demo
+
+Para ver la aplicación en funcionamiento con todas las funcionalidades de persistencia y animaciones, puedes acceder al sitio oficial desplegado en Vercel:
+
+[![Vercel Deployment](https://img.shields.io/badge/Probar_App_en_Vivo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://task-app-alizunegas-projects.vercel.app/)
+
+> **Nota:** La aplicación utiliza `localStorage`, por lo que tus datos se mantendrán guardados localmente en este navegador.
 
 ---
 
