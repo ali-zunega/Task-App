@@ -1,3 +1,4 @@
+
 # 📝 Task App (React + Vite)
 
 Una aplicación de gestión de tareas sencilla pero escalable, desarrollada con React y Vite.
@@ -124,10 +125,14 @@ npm run dev
 
 ### Vista Mobile
 
-<img src="./src/assets/screenshots/mobile-all-pending.png" width="250px" alt="Vista Mobile All pending"> 
-<img src="./src/assets/screenshots/mobile-all.png" width="250px" alt="Vista Mobile All">
-<img src="./src/assets/screenshots/mobile-pending.png" width="250px" alt="Vista Mobile Pending" />
-<img src="./src/assets/screenshots/mobile-completed.png" width="250px" alt="Vista Mobile Completed">
+<div align="center">
+  <img src="./src/assets/screenshots/mobile-all-pending.png" width="250px" alt="Vista Mobile All pending"> 
+  <img src="./src/assets/screenshots/mobile-all.png" width="250px" alt="Vista Mobile All">
+</div>
+<div align="center">
+  <img src="./src/assets/screenshots/mobile-pending.png" width="250px" alt="Vista Mobile Pending" />
+  <img src="./src/assets/screenshots/mobile-completed.png" width="250px" alt="Vista Mobile Completed">
+</div>
 
 ### Vista Desktop
 
@@ -138,7 +143,7 @@ npm run dev
 
 ## 🎥 Demo en Vivo
 
-![Video]
+[![Video](./screenshots/desktop-pending.png)](https://github.com/user-attachments/assets/cf2107ed-a4cb-4bed-a288-65bde7d017fe)
 
 > **Nota:** Se puede observar la fluidez de las animaciones al completar y eliminar tareas.
 
