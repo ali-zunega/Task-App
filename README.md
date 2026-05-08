@@ -28,15 +28,16 @@ Construir una aplicación web que permite a los usuarios:
 
 ### ✅ Funcionalidades Implementadas
 
-- **Gestión de Tareas:** Agregar, completar y eliminar tareas con una interfaz fluida.
-- **Persistencia Local:** Integración con `localStorage` para que tus tareas no se borren al recargar el navegador.
-- **Arquitectura Limpia:** Separación de lógica en componentes funcionales y utilidades (`utils`) para el formateo de texto.
+- **Gestión Avanzada de Tareas:** Crear, marcar y eliminar con feedback visual inmediato.
+- **Búsqueda y Filtrado:** Localización instantánea de tareas mediante buscador y filtros por estado de completado.
+- **Persistencia con LocalStorage:** Sincronización automática de datos para evitar la pérdida de información al refrescar.
+- **Estado Global (Context API):** Implementación de un `TaskProvider` para evitar el _prop drilling_ y facilitar la escalabilidad.
 
 ### 💡 Experiencia de Usuario (UX/UI)
 
-- **Micro-interacciones:** Animaciones personalizadas ("pop") al completar tareas para un feedback visual dinámico.
-- **Diseño Responsive:** Optimizado para dispositivos móviles y escritorio (breakpoints ajustados a 576px).
-- **Formateo Inteligente:** Implementación de _Sentence case_ mediante JS para mantener la consistencia visual.
+- **Micro-interacciones:** Animaciones "pop" al completar y un sistema de "smooth-exit" al eliminar tareas.
+- **Feedback de Estados Vacíos:** Mensajes personalizados y motivadores cuando no hay tareas o filtros aplicados.
+- **Diseño Mobile-First:** Experiencia optimizada para móviles con media queries
 
 ### 🧠 Estructura de los datos
 
@@ -68,9 +69,9 @@ src/
 │   └── useTasks.js
 ├── utils/               #  funciones de ayuda
 ├── styles/              #  estilos globales
-│
-├── App.jsx              # logica principal de la app
-└── main.jsx
+├── assets/              #  carpeta de multimedia
+├── App.jsx              #  logica principal de la app
+└── main.jsx             #  renderizado inicial y provider
 ```
 
 ---
@@ -105,10 +106,9 @@ npm run dev
 
 ## 🧪 Próximos Pasos (Scalability)
 
-- **Categorización:** Agregar etiquetas o prioridades a las tareas.
+- **Categorización:** Agregar etiquetas o prioridades a las tareas (Alta, Media, Baja).
 - **Modo Oscuro:** Implementar un switch de tema (Light/Dark mode) usando variables CSS.
-- **Búsqueda y Filtros:** Filtrar por tareas pendientes, completadas o por texto.
-- **Testing:** Cobertura de pruebas unitarias con Vitest y React Testing Library.
+- **Testing:** Implementación de pruebas unitarias y de integración con _Vitest_ y _React Testing Library_.
 
 ---
 
@@ -122,11 +122,32 @@ npm run dev
 
 ## 📸 Screenshots
 
+### Vista Mobile
+
+![Mobile_1](./src/assets/screenshots/mobile-all-pending.png)
+![Mobile_2](./src/assets/screenshots/mobile-all.png)
+![Mobile_3](./src/assets/screenshots/mobile-pending.png)
+![Mobile_4](./src/assets/screenshots/mobile-completed.png)
+
+### Vista Desktop
+
+![Desktop_1](./src/assets/screenshots/desktop-empty.png)
+![Desktop_1](./src/assets/screenshots/desktop-all.png)
+
+---
+
+## 🎥 Demo en Vivo
+
+![Video](./src/assets/video-demo.mp4)
+
+> **Nota:** Se puede observar la fluidez de las animaciones al completar y eliminar tareas.
+
 ---
 
 ## 🤝 Autor
 
-Developed as part of a frontend take-home challenge.
+[Alicia Zuñega](https://github.com/ali-zunega)
+Frontend Developer
 
 ---
 
