@@ -1,4 +1,3 @@
-
 # 📝 Task App (React + Vite)
 
 Una aplicación de gestión de tareas sencilla pero escalable, desarrollada con React y Vite.
@@ -33,6 +32,7 @@ Construir una aplicación web que permite a los usuarios:
 - **Búsqueda y Filtrado:** Localización instantánea de tareas mediante buscador y filtros por estado de completado.
 - **Persistencia con LocalStorage:** Sincronización automática de datos para evitar la pérdida de información al refrescar.
 - **Estado Global (Context API):** Implementación de un `TaskProvider` para evitar el _prop drilling_ y facilitar la escalabilidad.
+- **Testing:** Pruebas unitarias y de integración con _Vitest_ y _React Testing Library_
 
 ### 💡 Experiencia de Usuario (UX/UI)
 
@@ -68,11 +68,16 @@ src/
 │   └── useTasksContext.js
 ├── hooks/
 │   └── useTasks.js
-├── utils/               #  funciones de ayuda
-├── styles/              #  estilos globales
-├── assets/              #  carpeta de multimedia
-├── App.jsx              #  logica principal de la app
-└── main.jsx             #  renderizado inicial y provider
+├── utils/               # funciones de ayuda
+├── styles/              # estilos globales
+├── assets/              # carpeta de multimedia
+├── App.jsx              # lógica principal de la app
+└── main.jsx             # renderizado inicial y provider
+__test__/                # tests unitarios y de integración
+├── formatText.test.js
+├── useTasks.test.jsx
+├── TaskInput.test.jsx
+└── TaskItem.test.jsx
 ```
 
 ---
@@ -105,11 +110,33 @@ npm run dev
 
 ---
 
+## 🧪 Testing
+
+Los tests utilizan **Vitest** y **React Testing Library**.
+
+### Ejecutar tests
+
+```bash
+npm test              # modo watch (recomendado en desarrollo)
+npm run test:ui       # interfaz visual en el navegador
+npm run test:coverage # reporte de cobertura de código
+```
+
+### Archivos de test
+
+Los tests se encuentran en la carpeta `__test__/`:
+
+- `formatText.test.js` - Tests unitarios de funciones utilitarias
+- `useTasks.test.jsx` - Tests unitarios del hook useTasks
+- `TaskInput.test.jsx` - Tests de integración del componente TaskInput
+- `TaskItem.test.jsx` - Tests de integración del componente TaskItem
+
+---
+
 ## 🧪 Próximos Pasos (Scalability)
 
 - **Categorización:** Agregar etiquetas o prioridades a las tareas (Alta, Media, Baja).
 - **Modo Oscuro:** Implementar un switch de tema (Light/Dark mode) usando variables CSS.
-- **Testing:** Implementación de pruebas unitarias y de integración con _Vitest_ y _React Testing Library_.
 
 ---
 
