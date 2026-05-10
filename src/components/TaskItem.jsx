@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from "../utils/formatText";
+import { capitalizeFirstLetter, getPriorityColor, getPriorityLabel } from "../utils/formatText";
 
 const TaskItem = ({ task, toggleTask, deleteTask, isDeleting }) => {
   return (
@@ -17,15 +17,22 @@ const TaskItem = ({ task, toggleTask, deleteTask, isDeleting }) => {
               : "bi-circle text-secondary"
           } fs-5`}
         ></i>
-        <span
-          className={`fs-5 ${
-            task.completed
-              ? "completed-animation text-decoration-line-through text-muted"
-              : ""
-          }`}
-        >
-          {capitalizeFirstLetter(task.text)}
-        </span>
+        <div className="d-flex gap-3 align-center">
+          <span
+            className={`fs-5 ${
+              task.completed
+                ? "completed-animation text-decoration-line-through text-muted"
+                : ""
+            }`}
+          >
+            {capitalizeFirstLetter(task.text)}
+          </span>
+          <span
+            className={`badge bg-${getPriorityColor(task.priority)} ms-2 priority-badge`}
+          >
+            {getPriorityLabel(task.priority)}
+          </span>
+        </div>
       </div>
 
       <button
