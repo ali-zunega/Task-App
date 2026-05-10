@@ -34,15 +34,15 @@ describe("TaskInput", () => {
     expect(input.value).toBe("Nueva tarea de prueba");
   });
 
-  it("debería llamar a addTask al hacer submit", async () => {
+  it("debería llamar a addTask al hacer submit con texto y prioridad por defecto", async () => {
     const user = userEvent.setup();
     render(<TaskInput />);
-    
+
     const input = screen.getByPlaceholderText(/Estudiar React/i);
     await user.type(input, "Tarea submit");
     await user.keyboard("{Enter}");
-    
-    expect(mockAddTask).toHaveBeenCalledWith("Tarea submit");
+
+    expect(mockAddTask).toHaveBeenCalledWith("Tarea submit", "medium");
   });
 
   it("debería limpiar el input después de agregar", async () => {

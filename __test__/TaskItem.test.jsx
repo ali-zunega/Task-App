@@ -11,6 +11,7 @@ describe("TaskItem", () => {
     id: "123",
     text: "tarea de prueba",
     completed: false,
+    priority: "medium",
   };
 
   beforeEach(() => {
@@ -90,7 +91,7 @@ describe("TaskItem", () => {
 
   it("debería renderizar con clase completed cuando está completada", () => {
     const completedTask = { ...task, completed: true };
-    
+
     render(
       <TaskItem
         task={completedTask}
@@ -101,5 +102,43 @@ describe("TaskItem", () => {
 
     const span = screen.getByText("Tarea de prueba");
     expect(span).toHaveClass("text-decoration-line-through");
+  });
+
+  it("debería renderizar el badge con la prioridad", () => {
+    render(
+      <TaskItem
+        task={task}
+        toggleTask={mockToggleTask}
+        deleteTask={mockDeleteTask}
+      />
+    );
+
+    expect(screen.getByText("Media")).toBeInTheDocument();
+    expect(screen.getByText("Media")).toHaveClass("badge");
+  });
+
+  it("debería renderizar badge con color correcto según prioridad", () => {
+    const highPriorityTask = { ...task, priority: "high" };
+    const lowPriorityTask = { ...task, priority: "low" };
+
+    const { rerender } = render(
+      <TaskItem
+        task={highPriorityTask}
+        toggleTask={mockToggleTask}
+        deleteTask={mockDeleteTask}
+      />
+    );
+
+    expect(screen.getByText("Alta")).toHaveClass("bg-danger");
+
+    rerender(
+      <TaskItem
+        task={lowPriorityTask}
+        toggleTask={mockToggleTask}
+        deleteTask={mockDeleteTask}
+      />
+    );
+
+    expect(screen.getByText("Baja")).toHaveClass("bg-success");
   });
 });

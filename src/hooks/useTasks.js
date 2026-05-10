@@ -16,8 +16,14 @@ export const useTasks = () => {
   }, [tasks]);
 
   // agrega de tareas
-  const addTask = (text) => {
-    const newTask = { id: crypto.randomUUID(), text, completed: false };
+  // por defecto asignamos prioridad media
+  const addTask = (text, priority) => {
+    const newTask = {
+      id: crypto.randomUUID(),
+      text,
+      completed: false,
+      priority: priority || "medium",
+    };
     setTasks((prev) => [...prev, newTask]);
   };
 

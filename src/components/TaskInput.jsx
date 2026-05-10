@@ -4,12 +4,14 @@ import { useTaskContext } from "../context/useTaskContext";
 function TaskInput() {
   const { addTask } = useTaskContext();
   const [text, setText] = useState("");
+  const [priority, setPriority] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!text.trim()) return;
-    addTask(text);
+    addTask(text, priority || "medium");
     setText("");
+    setPriority("");
   };
 
   return (
@@ -28,6 +30,22 @@ function TaskInput() {
         enterKeyHint="done"
         autoComplete="off"
       />
+      <select
+        id="priority"
+        value={priority}
+        onChange={(e) => setPriority(e.target.value)}
+        className="form-select form-select-sm"
+        style={{ maxWidth: "120px" }}
+        aria-label="Seleccionar prioridad"
+      >
+        <option value="" disabled>
+          Prioridad
+        </option>
+        <option value="medium">Media</option>
+        <option value="low">Baja</option>
+        <option value="high">Alta</option>
+      </select>
+
       <button
         className="btn btn-primary d-flex align-items-center gap-2"
         type="submit"

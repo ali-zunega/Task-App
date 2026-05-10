@@ -13,9 +13,9 @@ describe("useTasks hook", () => {
     expect(result.current.tasks).toEqual([]);
   });
 
-  it("debería agregar una nueva tarea", () => {
+  it("debería agregar una nueva tarea con prioridad por defecto medium", () => {
     const { result } = renderHook(() => useTasks());
-    
+
     act(() => {
       result.current.addTask("Nueva tarea");
     });
@@ -23,6 +23,17 @@ describe("useTasks hook", () => {
     expect(result.current.tasks).toHaveLength(1);
     expect(result.current.tasks[0].text).toBe("Nueva tarea");
     expect(result.current.tasks[0].completed).toBe(false);
+    expect(result.current.tasks[0].priority).toBe("medium");
+  });
+
+  it("debería agregar una nueva tarea con prioridad custom", () => {
+    const { result } = renderHook(() => useTasks());
+
+    act(() => {
+      result.current.addTask("Tarea alta", "high");
+    });
+
+    expect(result.current.tasks[0].priority).toBe("high");
   });
 
   it("debería eliminar una tarea", () => {

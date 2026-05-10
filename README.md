@@ -31,6 +31,7 @@ Construir una aplicación web que permite a los usuarios:
 - **Gestión Avanzada de Tareas:** Crear, marcar y eliminar con feedback visual inmediato.
 - **Búsqueda y Filtrado:** Localización instantánea de tareas mediante buscador y filtros por estado de completado.
 - **Persistencia con LocalStorage:** Sincronización automática de datos para evitar la pérdida de información al refrescar.
+- **Sistema de Prioridades:** Cada tarea puede clasificarse como Alta, Media o Baja con badges de colores diferenciados (rojo, amarillo, verde).
 - **Estado Global (Context API):** Implementación de un `TaskProvider` para evitar el _prop drilling_ y facilitar la escalabilidad.
 - **Testing:** Pruebas unitarias y de integración con _Vitest_ y _React Testing Library_
 
@@ -46,9 +47,10 @@ Cada tarea se representa como un objeto:
 
 ```js
 {
-  id: number,
+  id: string,
   text: string,
-  completed: boolean
+  completed: boolean,
+  priority: "high" | "medium" | "low"
 }
 ```
 
@@ -62,13 +64,15 @@ src/
 ├── components/          # componentes reutilizables
 │   ├── TaskList.jsx
 │   ├── TaskItem.jsx
-│   └── TaskInput.jsx
+│   ├── TaskInput.jsx
+│   └── TaskControls.jsx
 ├── context/             # contexto
 │   ├── TaskContext.jsx
-│   └── useTasksContext.js
+│   └── useTaskContext.js
 ├── hooks/
 │   └── useTasks.js
 ├── utils/               # funciones de ayuda
+│   └── formatText.js
 ├── styles/              # estilos globales
 ├── assets/              # carpeta de multimedia
 ├── App.jsx              # lógica principal de la app
@@ -77,7 +81,8 @@ __test__/                # tests unitarios y de integración
 ├── formatText.test.js
 ├── useTasks.test.jsx
 ├── TaskInput.test.jsx
-└── TaskItem.test.jsx
+├── TaskItem.test.jsx
+└── TaskControls.test.jsx
 ```
 
 ---
@@ -135,7 +140,6 @@ Los tests se encuentran en la carpeta `__test__/`:
 
 ## 🧪 Próximos Pasos (Scalability)
 
-- **Categorización:** Agregar etiquetas o prioridades a las tareas (Alta, Media, Baja).
 - **Modo Oscuro:** Implementar un switch de tema (Light/Dark mode) usando variables CSS.
 
 ---
@@ -153,7 +157,7 @@ Los tests se encuentran en la carpeta `__test__/`:
 ### Vista Mobile
 
 <div align="center">
-  <img src="./src/assets/screenshots/mobile-all-pending.png" width="250px" alt="Vista Mobile All pending"> 
+  <img src="./src/assets/screenshots/mobile-full.png" width="250px" alt="Vista Mobile full"> 
   <img src="./src/assets/screenshots/mobile-all.png" width="250px" alt="Vista Mobile All">
 </div>
 <div align="center">
@@ -163,8 +167,10 @@ Los tests se encuentran en la carpeta `__test__/`:
 
 ### Vista Desktop
 
-<img src="./src/assets/screenshots/desktop-empty.png" width="600px" alt="Desktop Empty">
-<img src="./src/assets/screenshots/desktop-pending.png" width="600px" alt="Desktop All">
+<img src="./src/assets/screenshots/desktop-full.png" width="600px" alt="Desktop Full">
+<img src="./src/assets/screenshots/desktop-all.png" width="600px" alt="Desktop All">
+<img src="./src/assets/screenshots/desktop-pending.png" width="600px" alt="Desktop Pending">
+<img src="./src/assets/screenshots/desktop-completed.png" width="600px" alt="Desktop Completed">
 
 ---
 
