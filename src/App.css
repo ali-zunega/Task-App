@@ -63,3 +63,14 @@
     background-color: rgba(0, 0, 0, 0.05);
     color: var(--bs-secondary);
 }
+
+.priority-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 75px;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 999px;
+}
