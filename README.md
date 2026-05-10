@@ -176,7 +176,7 @@ Los tests se encuentran en la carpeta `__test__/`:
 
 ## 🎥 Demo en Vivo
 
-[![Video](./screenshots/desktop-pending.png)](https://github.com/user-attachments/assets/cf2107ed-a4cb-4bed-a288-65bde7d017fe)
+[![Video]](https://github.com/user-attachments/assets/1e36220e-5b9b-4058-bbaa-aad058f53da9)
 
 > **Nota:** Se puede observar la fluidez de las animaciones al completar y eliminar tareas.
 
