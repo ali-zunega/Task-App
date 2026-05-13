@@ -1,5 +1,5 @@
 import { useTaskContext } from "./context/useTaskContext";
-
+import { useThemeContext } from "./context/useThemeContext";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 import TaskControls from "./components/TaskControls";
@@ -8,12 +8,21 @@ import "./App.css";
 
 function App() {
   const { tasks, filteredTasks } = useTaskContext();
+  const { theme, toggleTheme } = useThemeContext();
 
   return (
     <div className="container mt-1 px-sm-0">
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
-          <header className="bg-primary text-white py-4 mb-4 shadow">
+          <header className="bg-primary text-white py-4 mb-4 shadow position-relative rounded">
+            <button
+              className="btn btn-outline-light btn-sm position-absolute top-0 end-0 m-2"
+              onClick={toggleTheme}
+            >
+              <i
+                className={`bi ${theme === "light" ? "bi-moon-stars" : "bi-sun"} fs-5`}
+              ></i>
+            </button>
             <div className="container">
               <div className="d-flex align-items-center justify-content-md-evenly justify-content-center gap-3">
                 {/* logo*/}

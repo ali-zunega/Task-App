@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import TaskItem from "../src/components/TaskItem";
@@ -25,7 +25,7 @@ describe("TaskItem", () => {
         task={task}
         toggleTask={mockToggleTask}
         deleteTask={mockDeleteTask}
-      />
+      />,
     );
 
     expect(screen.getByText("Tarea de prueba")).toBeInTheDocument();
@@ -37,7 +37,7 @@ describe("TaskItem", () => {
         task={task}
         toggleTask={mockToggleTask}
         deleteTask={mockDeleteTask}
-      />
+      />,
     );
 
     expect(screen.getByRole("button")).toBeInTheDocument();
@@ -50,11 +50,11 @@ describe("TaskItem", () => {
         task={task}
         toggleTask={mockToggleTask}
         deleteTask={mockDeleteTask}
-      />
+      />,
     );
 
     await user.click(screen.getByText("Tarea de prueba"));
-    
+
     expect(mockToggleTask).toHaveBeenCalledWith("123");
   });
 
@@ -65,11 +65,11 @@ describe("TaskItem", () => {
         task={task}
         toggleTask={mockToggleTask}
         deleteTask={mockDeleteTask}
-      />
+      />,
     );
 
     await user.click(screen.getByRole("button"));
-    
+
     expect(mockDeleteTask).toHaveBeenCalledWith("123");
   });
 
@@ -80,12 +80,12 @@ describe("TaskItem", () => {
         task={task}
         toggleTask={mockToggleTask}
         deleteTask={mockDeleteTask}
-      />
+      />,
     );
 
     const deleteButton = screen.getByRole("button");
     await user.click(deleteButton);
-    
+
     expect(mockToggleTask).not.toHaveBeenCalled();
   });
 
@@ -97,7 +97,7 @@ describe("TaskItem", () => {
         task={completedTask}
         toggleTask={mockToggleTask}
         deleteTask={mockDeleteTask}
-      />
+      />,
     );
 
     const span = screen.getByText("Tarea de prueba");
@@ -110,7 +110,7 @@ describe("TaskItem", () => {
         task={task}
         toggleTask={mockToggleTask}
         deleteTask={mockDeleteTask}
-      />
+      />,
     );
 
     expect(screen.getByText("Media")).toBeInTheDocument();
@@ -126,7 +126,7 @@ describe("TaskItem", () => {
         task={highPriorityTask}
         toggleTask={mockToggleTask}
         deleteTask={mockDeleteTask}
-      />
+      />,
     );
 
     expect(screen.getByText("Alta")).toHaveClass("bg-danger");
@@ -136,9 +136,52 @@ describe("TaskItem", () => {
         task={lowPriorityTask}
         toggleTask={mockToggleTask}
         deleteTask={mockDeleteTask}
-      />
+      />,
     );
 
     expect(screen.getByText("Baja")).toHaveClass("bg-success");
+  });
+
+  it("debería mostrar clase deleting cuando isDeleting es true", () => {
+    render(
+      <TaskItem
+        task={task}
+        toggleTask={mockToggleTask}
+        deleteTask={mockDeleteTask}
+        isDeleting={true}
+      />,
+    );
+
+    const container = screen
+      .getByText("Tarea de prueba")
+      .closest(".list-group-item");
+    expect(container).toHaveClass("deleting");
+  });
+
+  it("debería deshabilitar el botón de eliminar cuando isDeleting es true", () => {
+    render(
+      <TaskItem
+        task={task}
+        toggleTask={mockToggleTask}
+        deleteTask={mockDeleteTask}
+        isDeleting={true}
+      />,
+    );
+
+    const deleteBtn = screen.getByRole("button");
+    expect(deleteBtn).toBeDisabled();
+  });
+
+  it("debería habilitar el botón de eliminar cuando isDeleting es false o undefined", () => {
+    render(
+      <TaskItem
+        task={task}
+        toggleTask={mockToggleTask}
+        deleteTask={mockDeleteTask}
+      />,
+    );
+
+    const deleteBtn = screen.getByRole("button");
+    expect(deleteBtn).not.toBeDisabled();
   });
 });

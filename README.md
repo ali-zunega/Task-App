@@ -20,7 +20,7 @@ Construir una aplicación web que permite a los usuarios:
 
 - ⚛️ React (Componentes funcionales + hooks)
 - ⚡ Vite
-- 🎨 CSS (estilo personalizado)
+- 🎨 CSS y Bootstrap
 
 ---
 
@@ -39,7 +39,8 @@ Construir una aplicación web que permite a los usuarios:
 
 - **Micro-interacciones:** Animaciones "pop" al completar y un sistema de "smooth-exit" al eliminar tareas.
 - **Feedback de Estados Vacíos:** Mensajes personalizados y motivadores cuando no hay tareas o filtros aplicados.
-- **Diseño Mobile-First:** Experiencia optimizada para móviles con media queries
+- **Diseño Mobile-First:** Experiencia optimizada para móviles con media queries.
+- **Modo Oscuro:** Switch de tema integrado para una visualización cómoda en cualquier entorno, persistido mediante LocalStorage.
 
 ### 🧠 Estructura de los datos
 
@@ -69,6 +70,8 @@ src/
 ├── context/             # contexto
 │   ├── TaskContext.jsx
 │   └── useTaskContext.js
+│   ├── ThemeContext.jsx
+│   └── useThemeContext.js
 ├── hooks/
 │   └── useTasks.js
 ├── utils/               # funciones de ayuda
@@ -77,12 +80,18 @@ src/
 ├── assets/              # carpeta de multimedia
 ├── App.jsx              # lógica principal de la app
 └── main.jsx             # renderizado inicial y provider
+│
 __test__/                # tests unitarios y de integración
+│
 ├── formatText.test.js
 ├── useTasks.test.jsx
+├── useTaskContext.test.js
+├── useThemeContext.test.js
 ├── TaskInput.test.jsx
 ├── TaskItem.test.jsx
+├── TaskList.test.jsx
 └── TaskControls.test.jsx
+
 ```
 
 ---
@@ -140,7 +149,9 @@ Los tests se encuentran en la carpeta `__test__/`:
 
 ## 🧪 Próximos Pasos (Scalability)
 
-- **Modo Oscuro:** Implementar un switch de tema (Light/Dark mode) usando variables CSS.
+- **Editar tareas:** Permitir a los usuarios editar las tareas luego de crearlas.
+- **Categorías:** Permitir a los usuarios crear etiquetas personalizadas.
+- **Notificaciones:** Avisos visuales cuando se acerca la fecha límite de una tarea.
 
 ---
 
@@ -156,21 +167,46 @@ Los tests se encuentran en la carpeta `__test__/`:
 
 ### Vista Mobile
 
-<div align="center">
-  <img src="./src/assets/screenshots/mobile-full.png" width="250px" alt="Vista Mobile full"> 
-  <img src="./src/assets/screenshots/mobile-all.png" width="250px" alt="Vista Mobile All">
+<div>
+  <h4>Light Mode</h4>
+  <div align="center">
+    <img src="./src/assets/screenshots/lightmode-mobile-full.png" width="250px" alt="Vista Mobile full"> 
+    <img src="./src/assets/screenshots/lightmode-mobile-all.png" width="250px" alt="Vista Mobile All">
+  </div>
+  <div align="center">
+    <img src="./src/assets/screenshots/lightmode-mobile-pending.png" width="250px" alt="Vista Mobile Pending" />
+    <img src="./src/assets/screenshots/lightmode-mobile-completed.png" width="250px" alt="Vista Mobile Completed">
+  </div>
 </div>
-<div align="center">
-  <img src="./src/assets/screenshots/mobile-pending.png" width="250px" alt="Vista Mobile Pending" />
-  <img src="./src/assets/screenshots/mobile-completed.png" width="250px" alt="Vista Mobile Completed">
+<div>
+  <h4>Dark Mode</h4>
+  <div align="center">
+    <img src="./src/assets/screenshots/darkmode-mobile-full.png" width="250px" alt="Vista Mobile full"> 
+    <img src="./src/assets/screenshots/darkmode-mobile-all.png" width="250px" alt="Vista Mobile All">
+  </div>
+  <div align="center">
+    <img src="./src/assets/screenshots/darkmode-mobile-pending.png" width="250px" alt="Vista Mobile Pending" />
+    <img src="./src/assets/screenshots/darkmode-mobile-completed.png" width="250px" alt="Vista Mobile Completed">
+  </div>
 </div>
 
 ### Vista Desktop
 
-<img src="./src/assets/screenshots/desktop-full.png" width="600px" alt="Desktop Full">
-<img src="./src/assets/screenshots/desktop-all.png" width="600px" alt="Desktop All">
-<img src="./src/assets/screenshots/desktop-pending.png" width="600px" alt="Desktop Pending">
-<img src="./src/assets/screenshots/desktop-completed.png" width="600px" alt="Desktop Completed">
+<div>
+  <h4>Light Mode</h4>
+  <img src="./src/assets/screenshots/lightmode-desktop-full.png" width="600px" alt="Desktop Full">
+  <img src="./src/assets/screenshots/lightmode-desktop-all.png" width="600px" alt="Desktop All">
+  <img src="./src/assets/screenshots/lightmode-desktop-pending.png" width="600px" alt="Desktop Pending">
+  <img src="./src/assets/screenshots/lightmode-desktop-completed.png" width="600px" alt="Desktop Completed">
+<div>
+<div>
+  <h4>Dark Mode</h4>
+
+  <img src="./src/assets/screenshots/darkmode-desktop-full.png" width="600px" alt="Desktop Full">
+  <img src="./src/assets/screenshots/darkmode-desktop-all.png" width="600px" alt="Desktop All">
+  <img src="./src/assets/screenshots/darkmode-desktop-pending.png" width="600px" alt="Desktop Pending">
+  <img src="./src/assets/screenshots/darkmode-desktop-completed.png" width="600px" alt="Desktop Completed">
+</div>
 
 ---
 

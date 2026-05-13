@@ -6,8 +6,8 @@ const TaskControls = () => {
     <div className="mb-4">
       {/* Buscador */}
       <div className="input-group mb-3 shadow-sm border rounded">
-        <span className="input-group-text bg-white border-0">
-          <i className="bi bi-search text-muted"></i>
+        <span className="input-group-text border-0">
+          <i className="bi bi-search text-body-secondary"></i>
         </span>
         <input
           id="search-task"
