@@ -7,8 +7,22 @@ html * {
 }
 
 .task-item {
+    padding: 0.75rem;
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     border: 1px solid transparent;
+}
+
+.task-item .fs-5 {
+    font-size: 0.95rem;
+}
+
+@media (min-width: 576px) {
+    .task-item {
+        padding: 1rem;
+    }
+    .task-item .fs-5 {
+        font-size: 1.25rem;
+    }
 }
 
 .task-item:hover {
@@ -70,6 +84,10 @@ html * {
 .btn-outline-secondary:hover {
     background-color: var(--bs-tertiary-bg);
     color: var(--bs-body-color);
+}
+
+.min-w-0 {
+    min-width: 0;
 }
 
 .priority-badge {
