@@ -144,12 +144,11 @@ Los tests se encuentran en la carpeta `__test__/`:
 - `TaskInput.test.jsx` - Tests de integración del componente TaskInput
 - `TaskItem.test.jsx` - Tests de integración del componente TaskItem
 
-
-###  Resultados de los Tests
+### Resultados de los Tests
 
 Se han implementado pruebas unitarias y de integración para asegurar la estabilidad de las funcionalidades.
 
-<img src="./src/assets/screenshots/test-11-05.png" width="600px" alt="Resultados de Vitest">
+<img src="./src/assets/screenshots/test-results-coverage.png" width="600px" alt="Resultados de Vitest">
 
 ---
 
