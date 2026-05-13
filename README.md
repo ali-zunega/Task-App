@@ -82,15 +82,14 @@ src/
 └── main.jsx             # renderizado inicial y provider
 │
 __test__/                # tests unitarios y de integración
-│
-├── formatText.test.js
-├── useTasks.test.jsx
-├── useTaskContext.test.js
-├── useThemeContext.test.js
-├── TaskInput.test.jsx
-├── TaskItem.test.jsx
-├── TaskList.test.jsx
-└── TaskControls.test.jsx
+  ├── formatText.test.js
+  ├── useTasks.test.jsx
+  ├── useTaskContext.test.js
+  ├── useThemeContext.test.js
+  ├── TaskInput.test.jsx
+  ├── TaskItem.test.jsx
+  ├── TaskList.test.jsx
+  └── TaskControls.test.jsx
 
 ```
 
@@ -145,6 +144,13 @@ Los tests se encuentran en la carpeta `__test__/`:
 - `TaskInput.test.jsx` - Tests de integración del componente TaskInput
 - `TaskItem.test.jsx` - Tests de integración del componente TaskItem
 
+
+###  Resultados de los Tests
+
+Se han implementado pruebas unitarias y de integración para asegurar la estabilidad de las funcionalidades.
+
+<img src="./src/assets/screenshots/test-11-05.png" width="600px" alt="Resultados de Vitest">
+
 ---
 
 ## 🧪 Próximos Pasos (Scalability)
@@ -169,24 +175,24 @@ Los tests se encuentran en la carpeta `__test__/`:
 
 <div>
   <h4>Light Mode</h4>
-  <div align="center">
-    <img src="./src/assets/screenshots/lightmode-mobile-full.png" width="250px" alt="Vista Mobile full"> 
-    <img src="./src/assets/screenshots/lightmode-mobile-all.png" width="250px" alt="Vista Mobile All">
+  <div>
+    <img src="./src/assets/screenshots/lightmode-mobile-full.png" width="250px" alt="Vista Mobile full claro"> 
+    <img src="./src/assets/screenshots/lightmode-mobile-all.png" width="250px" alt="Vista Mobile All claro">
   </div>
-  <div align="center">
-    <img src="./src/assets/screenshots/lightmode-mobile-pending.png" width="250px" alt="Vista Mobile Pending" />
-    <img src="./src/assets/screenshots/lightmode-mobile-completed.png" width="250px" alt="Vista Mobile Completed">
+  <div>
+    <img src="./src/assets/screenshots/lightmode-mobile-pending.png" width="250px" alt="Vista Mobile Pending claro" />
+    <img src="./src/assets/screenshots/lightmode-mobile-completed.png" width="250px" alt="Vista Mobile Completed claro">
   </div>
 </div>
 <div>
   <h4>Dark Mode</h4>
-  <div align="center">
-    <img src="./src/assets/screenshots/darkmode-mobile-full.png" width="250px" alt="Vista Mobile full"> 
-    <img src="./src/assets/screenshots/darkmode-mobile-all.png" width="250px" alt="Vista Mobile All">
+  <div>
+    <img src="./src/assets/screenshots/darkmode-mobile-full.png" width="250px" alt="Vista Mobile full oscuro"> 
+    <img src="./src/assets/screenshots/darkmode-mobile-all.png" width="250px" alt="Vista Mobile All oscuro">
   </div>
-  <div align="center">
-    <img src="./src/assets/screenshots/darkmode-mobile-pending.png" width="250px" alt="Vista Mobile Pending" />
-    <img src="./src/assets/screenshots/darkmode-mobile-completed.png" width="250px" alt="Vista Mobile Completed">
+  <div>
+    <img src="./src/assets/screenshots/darkmode-mobile-pending.png" width="250px" alt="Vista Mobile Pending oscuro" />
+    <img src="./src/assets/screenshots/darkmode-mobile-completed.png" width="250px" alt="Vista Mobile Completed oscuro">
   </div>
 </div>
 
@@ -194,27 +200,26 @@ Los tests se encuentran en la carpeta `__test__/`:
 
 <div>
   <h4>Light Mode</h4>
-  <img src="./src/assets/screenshots/lightmode-desktop-full.png" width="600px" alt="Desktop Full">
-  <img src="./src/assets/screenshots/lightmode-desktop-all.png" width="600px" alt="Desktop All">
-  <img src="./src/assets/screenshots/lightmode-desktop-pending.png" width="600px" alt="Desktop Pending">
-  <img src="./src/assets/screenshots/lightmode-desktop-completed.png" width="600px" alt="Desktop Completed">
+  <img src="./src/assets/screenshots/lightmode-desktop-full.png" width="600px" alt="Desktop Full claro">
+  <img src="./src/assets/screenshots/lightmode-desktop-all.png" width="600px" alt="Desktop All claro">
+  <img src="./src/assets/screenshots/lightmode-desktop-pending.png" width="600px" alt="Desktop Pending claro">
+  <img src="./src/assets/screenshots/lightmode-desktop-completed.png" width="600px" alt="Desktop Completed claro">
 <div>
 <div>
   <h4>Dark Mode</h4>
-
-  <img src="./src/assets/screenshots/darkmode-desktop-full.png" width="600px" alt="Desktop Full">
-  <img src="./src/assets/screenshots/darkmode-desktop-all.png" width="600px" alt="Desktop All">
-  <img src="./src/assets/screenshots/darkmode-desktop-pending.png" width="600px" alt="Desktop Pending">
-  <img src="./src/assets/screenshots/darkmode-desktop-completed.png" width="600px" alt="Desktop Completed">
+  <img src="./src/assets/screenshots/darkmode-desktop-full.png" width="600px" alt="Desktop Full oscuro">
+  <img src="./src/assets/screenshots/darkmode-desktop-all.png" width="600px" alt="Desktop All oscuro">
+  <img src="./src/assets/screenshots/darkmode-desktop-pending.png" width="600px" alt="Desktop Pending oscuro">
+  <img src="./src/assets/screenshots/darkmode-desktop-completed.png" width="600px" alt="Desktop Completed oscuro">
 </div>
 
 ---
 
 ## 🎥 Demo en Vivo
 
-[![Video]](https://github.com/user-attachments/assets/1e36220e-5b9b-4058-bbaa-aad058f53da9)
+[![Video]](https://github.com/user-attachments/assets/4aaee06f-6168-41f8-81f6-2c6af0eaba17)
 
-> **Nota:** Se puede observar la fluidez de las animaciones al completar y eliminar tareas.
+> **Nota:** Se puede observar la fluidez de las animaciones al cargar tareas, marcarlas, cambiar entre tema claro u oscuro.
 
 ---
 
