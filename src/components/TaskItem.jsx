@@ -1,6 +1,16 @@
-import { capitalizeFirstLetter, getPriorityColor, getPriorityLabel } from "../utils/formatText";
+import {
+  capitalizeFirstLetter,
+  getPriorityColor,
+  getPriorityLabel,
+} from "../utils/formatText";
 
-const TaskItem = ({ task, toggleTask, deleteTask, isDeleting }) => {
+const TaskItem = ({
+  task,
+  toggleTask,
+  deleteTask,
+  isDeleting,
+  handleOpenEdit,
+}) => {
   return (
     <div
       onClick={() => toggleTask(task.id)}
@@ -34,17 +44,27 @@ const TaskItem = ({ task, toggleTask, deleteTask, isDeleting }) => {
           </span>
         </div>
       </div>
+      <div className="btn-actions">
+        {!task.completed && (
+          <button
+            className="btn btn-sm text-primary border-0 flex-shrink-0"
+            onClick={(e) => { e.stopPropagation(); handleOpenEdit(task); }}
+          >
+            <i className="bi bi-pencil fs-5"></i>
+          </button>
+        )}
 
-      <button
-        className="btn btn-sm text-danger border-0 flex-shrink-0"
-        onClick={(e) => {
-          e.stopPropagation();
-          deleteTask(task.id);
-        }}
-        disabled={isDeleting}
-      >
-        <i className="bi bi-trash fs-5"></i>
-      </button>
+        <button
+          className="btn btn-sm text-danger border-0 flex-shrink-0"
+          onClick={(e) => {
+            e.stopPropagation();
+            deleteTask(task.id);
+          }}
+          disabled={isDeleting}
+        >
+          <i className="bi bi-trash fs-5"></i>
+        </button>
+      </div>
     </div>
   );
 };
