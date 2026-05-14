@@ -1,14 +1,22 @@
+import { useState } from "react";
 import { useTaskContext } from "./context/useTaskContext";
 import { useThemeContext } from "./context/useThemeContext";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
+import TaskEdit from "./components/TaskEdit";
 import TaskControls from "./components/TaskControls";
 import logo from "./assets/logo.png";
 import "./App.css";
 
 function App() {
-  const { tasks, filteredTasks } = useTaskContext();
+  const { tasks } = useTaskContext();
   const { theme, toggleTheme } = useThemeContext();
+
+  const [taskToEdit, setTaskToEdit] = useState(null);
+
+  const handleOpenEdit = (task) => {
+    setTaskToEdit(task);
+  };
 
   return (
     <div className="container mt-1 px-sm-0">
@@ -47,7 +55,15 @@ function App() {
 
           {tasks.length > 0 && <TaskControls />}
 
-          <TaskList tasks={filteredTasks} />
+          <TaskList handleOpenEdit={handleOpenEdit} />
+
+          {taskToEdit && (
+            <TaskEdit
+              key={taskToEdit.id}
+              task={taskToEdit}
+              onClose={() => setTaskToEdit(null)}
+            />
+          )}
         </div>
       </div>
     </div>

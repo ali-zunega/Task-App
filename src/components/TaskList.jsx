@@ -3,7 +3,7 @@ import { useTaskContext } from "../context/useTaskContext";
 
 import TaskItem from "./TaskItem";
 
-const TaskList = () => {
+const TaskList = ({ handleOpenEdit }) => {
   const { filteredTasks, deleteTask, toggleTask, filterStatus } =
     useTaskContext();
   const [deletingId, setDeletingId] = useState(null);
@@ -27,6 +27,7 @@ const TaskList = () => {
             toggleTask={toggleTask}
             deleteTask={handleDelete}
             isDeleting={task.id === deletingId}
+            handleOpenEdit={handleOpenEdit}
           />
         ))
       ) : filteredTasks.length === 0 && filterStatus === "completed" ? (
