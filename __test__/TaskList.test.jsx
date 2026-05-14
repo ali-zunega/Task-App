@@ -72,7 +72,9 @@ describe("TaskList", () => {
     mockContext.filteredTasks = [createTask()];
     render(<TaskList />);
 
-    fireEvent.click(screen.getByRole("button"));
+    const buttons = screen.getAllByRole("button");
+    const deleteButton = buttons[buttons.length - 1];
+    fireEvent.click(deleteButton);
 
     expect(mockDeleteTask).not.toHaveBeenCalled();
     expect(mockToggleTask).not.toHaveBeenCalled();
