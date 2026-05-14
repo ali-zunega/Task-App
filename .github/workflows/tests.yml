@@ -1,0 +1,32 @@
+name: TaskApp CI
+
+# Define qué eventos disparan los tests
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Descarga el código del repositorio en la máquina virtual
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Configura Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      # 3. Instala las dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Ejecuta los tests en modo "run" (no watch)
+      - name: Run tests
+        run: npm run test -- --run
