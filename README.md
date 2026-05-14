@@ -28,7 +28,7 @@ Construir una aplicación web que permite a los usuarios:
 
 ### ✅ Funcionalidades Implementadas
 
-- **Gestión Avanzada de Tareas:** Crear, marcar y eliminar con feedback visual inmediato.
+- **Gestión Avanzada de Tareas:** Crear, marcar, editar y eliminar con feedback visual inmediato.
 - **Búsqueda y Filtrado:** Localización instantánea de tareas mediante buscador y filtros por estado de completado.
 - **Persistencia con LocalStorage:** Sincronización automática de datos para evitar la pérdida de información al refrescar.
 - **Sistema de Prioridades:** Cada tarea puede clasificarse como Alta, Media o Baja con badges de colores diferenciados (rojo, amarillo, verde).
@@ -139,10 +139,14 @@ npm run test:coverage # reporte de cobertura de código
 
 Los tests se encuentran en la carpeta `__test__/`:
 
-- `formatText.test.js` - Tests unitarios de funciones utilitarias
-- `useTasks.test.jsx` - Tests unitarios del hook useTasks
-- `TaskInput.test.jsx` - Tests de integración del componente TaskInput
-- `TaskItem.test.jsx` - Tests de integración del componente TaskItem
+- `formatText.test.js` - Tests unitarios de funciones utilitarias (capitalize, getPriorityColor, getPriorityLabel)
+- `useTasks.test.jsx` - Tests unitarios del hook useTasks (gestión de estado de tareas)
+- `useTaskContext.test.js` - Tests del contexto de tareas (TaskProvider)
+- `useThemeContext.test.js` - Tests del contexto de tema (ThemeProvider)
+- `TaskItem.test.jsx` - Tests de integración del componente TaskItem (renderizado, toggle, delete, prioridad)
+- `TaskInput.test.jsx` - Tests de integración del componente TaskInput (agregar tareas)
+- `TaskList.test.jsx` - Tests de integración del componente TaskList (renderizado de lista, filtros)
+- `TaskControls.test.jsx` - Tests de integración del componente TaskControls (controles de filtrado)
 
 ### Resultados de los Tests
 
@@ -154,7 +158,6 @@ Se han implementado pruebas unitarias y de integración para asegurar la estabil
 
 ## 🧪 Próximos Pasos (Scalability)
 
-- **Editar tareas:** Permitir a los usuarios editar las tareas luego de crearlas.
 - **Categorías:** Permitir a los usuarios crear etiquetas personalizadas.
 - **Notificaciones:** Avisos visuales cuando se acerca la fecha límite de una tarea.
 
