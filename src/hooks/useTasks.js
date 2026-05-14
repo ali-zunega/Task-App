@@ -45,11 +45,21 @@ export const useTasks = () => {
     );
   };
 
+  // editar tarea
+  const editTask = (id, newText, newPriority) => {
+    setTasks((prev) =>
+      prev.map((t) =>
+        t.id === id ? { ...t, text: newText, priority: newPriority } : t,
+      ),
+    );
+  };
+
   return {
     tasks,
     addTask,
     deleteTask,
     toggleTask,
+    editTask,
     searchTerm,
     setSearchTerm,
     filterStatus,
