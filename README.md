@@ -64,6 +64,7 @@ src/
 │
 ├── components/          # componentes reutilizables
 │   ├── TaskList.jsx
+│   ├── TaskEdit.jsx
 │   ├── TaskItem.jsx
 │   ├── TaskInput.jsx
 │   └── TaskControls.jsx

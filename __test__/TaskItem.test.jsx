@@ -40,7 +40,8 @@ describe("TaskItem", () => {
       />,
     );
 
-    expect(screen.getByRole("button")).toBeInTheDocument();
+    const circleIcon = document.querySelector(".bi-circle");
+    expect(circleIcon).toBeInTheDocument();
   });
 
   it("debería llamar a toggleTask al hacer click en la tarea", async () => {
@@ -68,7 +69,9 @@ describe("TaskItem", () => {
       />,
     );
 
-    await user.click(screen.getByRole("button"));
+    const buttons = screen.getAllByRole("button");
+    const deleteButton = buttons[buttons.length - 1];
+    await user.click(deleteButton);
 
     expect(mockDeleteTask).toHaveBeenCalledWith("123");
   });
@@ -83,7 +86,8 @@ describe("TaskItem", () => {
       />,
     );
 
-    const deleteButton = screen.getByRole("button");
+    const buttons = screen.getAllByRole("button");
+    const deleteButton = buttons[buttons.length - 1];
     await user.click(deleteButton);
 
     expect(mockToggleTask).not.toHaveBeenCalled();
@@ -168,7 +172,8 @@ describe("TaskItem", () => {
       />,
     );
 
-    const deleteBtn = screen.getByRole("button");
+    const buttons = screen.getAllByRole("button");
+    const deleteBtn = buttons[buttons.length - 1];
     expect(deleteBtn).toBeDisabled();
   });
 
@@ -181,7 +186,8 @@ describe("TaskItem", () => {
       />,
     );
 
-    const deleteBtn = screen.getByRole("button");
+    const buttons = screen.getAllByRole("button");
+    const deleteBtn = buttons[buttons.length - 1];
     expect(deleteBtn).not.toBeDisabled();
   });
 });
