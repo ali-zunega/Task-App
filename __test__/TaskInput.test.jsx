@@ -83,10 +83,10 @@ describe("TaskInput", () => {
     const user = userEvent.setup();
     render(<TaskInput />);
 
-    const select = screen.getByLabelText(/prioridad/i);
-    await user.selectOptions(select, "high");
+    const radio = screen.getByLabelText("Alta");
+    await user.click(radio);
 
-    expect(select).toHaveValue("high");
+    expect(radio).toBeChecked();
   });
 
   it("debería llamar a addTask con la prioridad seleccionada", async () => {
@@ -94,10 +94,10 @@ describe("TaskInput", () => {
     render(<TaskInput />);
 
     const input = screen.getByPlaceholderText(/Estudiar React/i);
-    const select = screen.getByLabelText(/prioridad/i);
+    const radio = screen.getByLabelText("Alta");
 
     await user.type(input, "Tarea urgente");
-    await user.selectOptions(select, "high");
+    await user.click(radio);
     await user.click(screen.getByRole("button", { name: /Agregar/i }));
 
     expect(mockAddTask).toHaveBeenCalledWith("Tarea urgente", "high");

@@ -1,7 +1,6 @@
 import { createContext } from "react";
 import { useTasks } from "../hooks/useTasks";
 
-// 1. Creamos el contexto
 const TaskContext = createContext();
 export default TaskContext;
 
@@ -9,7 +8,7 @@ export default TaskContext;
 export const TaskProvider = ({ children }) => {
   const taskData = useTasks();
 
-  // Movemos la lógica de filtrado aquí para que esté disponible en toda la app
+  // lógica de filtrado para que esté disponible en toda la app
   const filteredTasks = taskData.tasks.filter((task) => {
     const matchesSearch = task.text
       .toLowerCase()
