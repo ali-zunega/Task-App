@@ -63,6 +63,7 @@ Cada tarea se representa como un objeto:
 src/
 │
 ├── components/          # componentes reutilizables
+│   ├── PrioritySelector.jsx
 │   ├── TaskList.jsx
 │   ├── TaskEdit.jsx
 │   ├── TaskItem.jsx
@@ -70,7 +71,7 @@ src/
 │   └── TaskControls.jsx
 ├── context/             # contexto
 │   ├── TaskContext.jsx
-│   └── useTaskContext.js
+│   ├── useTaskContext.js
 │   ├── ThemeContext.jsx
 │   └── useThemeContext.js
 ├── hooks/

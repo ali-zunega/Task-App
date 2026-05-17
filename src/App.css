@@ -20,6 +20,7 @@ html * {
     .task-item {
         padding: 1rem;
     }
+
     .task-item .fs-5 {
         font-size: 1.25rem;
     }
@@ -99,4 +100,57 @@ html * {
     font-size: 0.75rem;
     font-weight: 600;
     border-radius: 999px;
+}
+
+.bg-warning {
+    color: black !important;
+}
+
+.priority-pill {
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--bs-tertiary-bg);
+    color: var(--bs-secondary-color);
+    font-size: 0.85rem;
+    border: 1px solid var(--bs-border-color-translucent);
+}
+
+.priority-pill input[type="radio"] {
+    display: none;
+}
+
+.priority-pill:hover {
+    transform: translateY(-1px);
+}
+
+.priority-pill.active {
+    border-color: transparent;
+    color: white;
+    transform: scale(0.95);
+}
+
+.priority-pill.bg-danger.active {
+    background-color: var(--bs-danger);
+}
+
+.priority-pill.bg-warning.active {
+    background-color: var(--bs-warning);
+    color: black;
+}
+
+.priority-pill.bg-success.active {
+    background-color: var(--bs-success);
+}
+
+@media (min-width: 576px) {
+    .priority-pill {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
 }

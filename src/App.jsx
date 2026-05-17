@@ -50,13 +50,13 @@ function App() {
               </div>
             </div>
           </header>
-
+          {/* Input para agregar nuevas tareas */}
           <TaskInput />
-
+          {/* Controles de búsqueda y filtro (solo se muestran si hay tareas) */}
           {tasks.length > 0 && <TaskControls />}
-
+          {/* Lista de tareas */}
           <TaskList handleOpenEdit={handleOpenEdit} />
-
+          {/* Modal de edición */}
           {taskToEdit && (
             <TaskEdit
               key={taskToEdit.id}

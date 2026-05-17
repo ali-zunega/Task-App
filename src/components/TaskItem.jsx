@@ -44,11 +44,14 @@ const TaskItem = ({
           </span>
         </div>
       </div>
-      <div className="btn-actions">
+      <div className="btn-actions gap-2 d-flex align-items-center">
         {!task.completed && (
           <button
             className="btn btn-sm text-primary border-0 flex-shrink-0"
-            onClick={(e) => { e.stopPropagation(); handleOpenEdit(task); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleOpenEdit(task);
+            }}
           >
             <i className="bi bi-pencil fs-5"></i>
           </button>

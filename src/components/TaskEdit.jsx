@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTaskContext } from "../context/useTaskContext";
+import PrioritySelector from "./PrioritySelector";
 
 const TaskEdit = ({ task, onClose }) => {
   const { editTask } = useTaskContext();
 
   const [updatedTask, setUpdatedTask] = useState(task);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,8 +30,16 @@ const TaskEdit = ({ task, onClose }) => {
     }));
   };
 
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) onClose();
+  };
+
   return (
-    <div className="modal d-block bg-dark bg-opacity-50" tabIndex="-1">
+    <div
+      className="modal d-block bg-dark bg-opacity-75 modal-backdrop"
+      tabIndex="-1"
+      onClick={handleBackdropClick}
+    >
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="modal-header">
@@ -35,7 +52,9 @@ const TaskEdit = ({ task, onClose }) => {
           </div>
           <form onSubmit={handleSubmit}>
             <div className="modal-body">
-              <label className="form-label">Descripción de la tarea</label>
+              <label htmlFor="text" className="form-label">
+                Descripción de la tarea
+              </label>
               <input
                 name="text"
                 id="text"
@@ -45,23 +64,20 @@ const TaskEdit = ({ task, onClose }) => {
                 onChange={handleChange}
                 autoFocus
               />
-              <label className="form-label mt-3">Prioridad</label>
-              <select
-                name="priority"
-                id="priority"
-                className="form-select w-auto"
+              <PrioritySelector
                 value={updatedTask.priority}
-                onChange={handleChange}
-              >
-                <option value="low">Baja</option>
-                <option value="medium">Media</option>
-                <option value="high">Alta</option>
-              </select>
+                onChange={(val) =>
+                  setUpdatedTask((prev) => ({ ...prev, priority: val }))
+                }
+                name="priority"
+                idPrefix="edit-priority"
+              />
             </div>
             <div className="modal-footer">
               <button
                 type="submit"
                 className="btn btn-primary d-flex align-items-center gap-2"
+                aria-label="Guardar cambios"
               >
                 <i className="bi bi-floppy"></i>
                 <span className="d-none d-sm-inline">Guardar Cambios</span>
