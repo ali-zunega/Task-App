@@ -21,7 +21,7 @@ const TaskControls = () => {
       </div>
 
       {/* Filtros */}
-      <div className="d-flex justify-content-md-center justify-content-start flex-wrap gap-1">
+      <div className="d-flex justify-content-md-center align-items-start flex-wrap gap-1">
         <FilterButton
           active={filterStatus === "all"}
           onClick={() => setFilterStatus("all")}

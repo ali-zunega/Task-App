@@ -3,7 +3,6 @@ export const capitalizeFirstLetter = (text) => {
   return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 };
 
-// enumera colores para badge de prioridad
 export const PRIORITY_COLORS = {
   high: "danger",
   medium: "warning",

@@ -11,6 +11,8 @@ const mockContext = {
   deleteTask: mockDeleteTask,
   toggleTask: mockToggleTask,
   filterStatus: "all",
+  searchTerm: "",
+  tasks: [],
 };
 
 vi.mock("../src/context/useTaskContext", () => ({
@@ -31,6 +33,8 @@ describe("TaskList", () => {
     mockToggleTask.mockClear();
     mockContext.filteredTasks = [];
     mockContext.filterStatus = "all";
+    mockContext.searchTerm = "";
+    mockContext.tasks = [];
   });
 
   it("debería mostrar mensaje vacío cuando no hay tareas", () => {
